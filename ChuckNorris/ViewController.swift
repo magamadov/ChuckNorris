@@ -33,6 +33,7 @@ class ViewController: UIViewController {
           let joke = try jsonDecoder.decode(Joke.self, from: data)
           DispatchQueue.main.async {
             self.joke.text = joke.value
+            Animations.requireUserAtencion(on: self.logo)
           }
         } catch {
           DispatchQueue.main.async {
@@ -48,7 +49,7 @@ class ViewController: UIViewController {
       }
     }
     task.resume()
-    Animations.requireUserAtencion(on: logo)
+    
   }
 
 }
